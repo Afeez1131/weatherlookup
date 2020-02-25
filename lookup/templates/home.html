@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron">
+	{% if api == 'Error' %}
+		<h1 class="display-4">Error </h1>
+	{% else %}
+		<h1 class="display-4">Weather Look Up for <b>{{ api.0.ReportingArea }}</b> </h1>
+		<p class="lead"Date Observed: {{ api.0.DateObserved}}<br/>
+				Hour Observed: {{ api.0.HourObserved}} <br/>
+				Local Time zone: {{ api.0.LocalTimeZone}}<br/>
+				Reporting Area: {{ api.0.ReportingArea}}<br/>
+				Longitude: {{ api.0.Longitude}}<br/>
+				Latitude: {{ api.0.Latitude}}<br/></p>
+		<hr class="my-4">
+		<h2> AQI: {{ api.0.AQI}}<br/>
+				Weather Condition: {{ api.0.Category.Name}}</h2>
+ 
+</div>
+
+	{% endif %}
+
+{% endblock %}
